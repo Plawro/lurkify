@@ -4,25 +4,45 @@ let isMouseDown = false;
 
     const container = document.getElementById('container');
 
+    let isPointerDown = false;
+    // Mouse events
     document.addEventListener('mousedown', (e) => {
-        if (e.target.closest('#container')) {
-            isMouseDown = true;
-            startX = e.pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
-        }
+        isPointerDown = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
     });
-
+    
     document.addEventListener('mouseup', () => {
-        isMouseDown = false;
+        isPointerDown = false;
     });
-
+    
     document.addEventListener('mousemove', (e) => {
-        if (!isMouseDown) return;
-
+        if (!isPointerDown) return;
+    
         const x = e.pageX - container.offsetLeft;
         const walk = (x - startX) * 1;
         container.scrollLeft = scrollLeft - walk;
     });
+    
+    // Touch events
+    document.addEventListener('touchstart', (e) => {
+        isPointerDown = true;
+        startX = e.touches[0].pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+    
+    document.addEventListener('touchend', () => {
+        isPointerDown = false;
+    });
+    
+    document.addEventListener('touchmove', (e) => {
+        if (!isPointerDown || e.touches.length !== 1) return;
+    
+        const x = e.touches[0].pageX - container.offsetLeft;
+        const walk = (x - startX) * 1;
+        container.scrollLeft = scrollLeft - walk;
+    });
+    
 
 
     var searchTimer;
