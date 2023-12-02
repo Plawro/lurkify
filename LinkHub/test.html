@@ -1,106 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
+<div class="eyes">
+    <div class="eye">
+      <div class="pupil"></div>
+    </div>
+    <div class="eye">
+      <div class="pupil"></div>
+    </div>
+    <div class="eye" style="position: absolute;top:30%;left:60%">
+        <div class="pupil"></div>
+      </div>
+      <div class="eye" style="position: absolute;top:30%;left:63%">
+        <div class="pupil"></div>
+      </div>
+      <div class="eye">
+        <div class="pupil"></div>
+      </div>
+      <div class="eye">
+        <div class="pupil"></div>
+      </div>
+  </div>
 
-        .eyes-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
+  <style>
+    body {
+  background-color: #000;
+}
+.eyes {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
 
-        .eye-container {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.eye {
+  width: 50px;
+  height: 70px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .eye {
-            width: 20px;
-            height: 20px;
-            margin: 0 10px; /* Adjusted space between eyes */
-            background-color: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-    </style>
-    <title>Following Eyes Background</title>
-</head>
-<body>
-    <div class="eyes-container" id="eyes-container"></div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const eyesContainer = document.getElementById('eyes-container');
-            const maxEyes = 10; // Maximum number of eyes
-            const eyeSize = 20;
-            const eyeSpacing = 30; // Adjusted space between eyes
+.pupil {
+  width: 40px;
+  height: 40px;
+  border-radius: 101px;
+  background-color: #fff;
+}
+  </style>
 
-            function createEyes() {
-                const eyeContainer = document.createElement('div');
-                eyeContainer.classList.add('eye-container');
-                eyeContainer.style.left = Math.random() * window.innerWidth + 'px';
-                eyeContainer.style.top = Math.random() * window.innerHeight + 'px';
-
-                const eyeColor = getRandomColor();
-                const eye1 = createEye(eyeColor);
-                const eye2 = createEye(eyeColor);
-
-                eyeContainer.appendChild(eye1);
-                eyeContainer.appendChild(eye2);
-
-                eyesContainer.appendChild(eyeContainer);
-            }
-
-            function createEye(color) {
-                const eye = document.createElement('div');
-                eye.classList.add('eye');
-                eye.style.background = color;
-                return eye;
-            }
-
-            function getRandomColor() {
-                const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
-                return colors[Math.floor(Math.random() * colors.length)];
-            }
-
-            for (let i = 0; i < maxEyes; i++) {
-                createEyes();
-            }
-
-            document.addEventListener('mousemove', function (event) {
-                const mouseX = event.clientX;
-                const mouseY = event.clientY;
-
-                const eyeContainers = document.querySelectorAll('.eye-container');
-
-                eyeContainers.forEach((container) => {
-                    const rect = container.getBoundingClientRect();
-                    const centerX = rect.left + rect.width / 2;
-                    const centerY = rect.top + rect.height / 2;
-
-                    const deltaX = mouseX - centerX;
-                    const deltaY = mouseY - centerY;
-
-                    const angle = Math.atan2(deltaY, deltaX);
-                    const distance = Math.min(rect.width / 4, rect.height / 4); // Adjusted eye movement distance
-
-                    const newX = centerX + Math.cos(angle) * distance;
-                    const newY = centerY + Math.sin(angle) * distance;
-
-                    container.style.left = newX - rect.width / 2 + 'px';
-                    container.style.top = newY - rect.height / 2 + 'px';
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+  <script>
+    // get both pupils
+const pupils = document.querySelectorAll(".eye .pupil");
+window.addEventListener("mousemove", (e) => {
+  pupils.forEach((pupil) => {
+    // get x and y postion of cursor
+    var rect = pupil.getBoundingClientRect();
+    var x = (e.pageX - rect.left) / 30 + "px";
+    var y = (e.pageY - rect.top) / 30 + "px";
+    pupil.style.transform = "translate3d(" + x + "," + y + ", 0px)";
+  });
+});
+  </script>
