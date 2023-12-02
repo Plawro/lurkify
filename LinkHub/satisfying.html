@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .eyes-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .eye-container {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .eye {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            animation: blink 3s infinite alternate;
+        }
+
+        @keyframes blink {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+    <title>Random Eyes Background</title>
+</head>
+<body>
+    <div class="eyes-container" id="eyes-container"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const eyesContainer = document.getElementById('eyes-container');
+            const eyeLifetime = 60000; // 1 minute in milliseconds
+            const maxEyes = 1000; // Maximum number of eyes
+
+            function createEyes() {
+                const eyeContainer = document.createElement('div');
+                eyeContainer.classList.add('eye-container');
+                eyeContainer.style.left = Math.random() * window.innerWidth + 'px';
+                eyeContainer.style.top = Math.random() * window.innerHeight + 'px';
+
+                const eyeColor = getRandomColor();
+                const eye1 = createEye(eyeColor);
+                const eye2 = createEye(eyeColor);
+                const eye3 = createEye(eyeColor);
+
+                eyeContainer.appendChild(eye1);
+                eyeContainer.appendChild(eye2);
+                eyeContainer.appendChild(eye3);
+
+                eyesContainer.appendChild(eyeContainer);
+
+                setTimeout(() => {
+                    eyesContainer.removeChild(eyeContainer);
+                }, eyeLifetime);
+            }
+
+            function createEye(color) {
+                const eye = document.createElement('div');
+                eye.classList.add('eye');
+                eye.style.background = color;
+                eye.style.animationDuration = Math.random() * 2 + 1 + 's'; // Random blink duration
+                return eye;
+            }
+
+            function getRandomColor() {
+                const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            setInterval(() => {
+                if (eyesContainer.childElementCount < maxEyes) {
+                    createEyes();
+                }
+            }, 100); // Create a new pair of eyes every 3 seconds
+        });
+    </script>
+</body>
+</html>
