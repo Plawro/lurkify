@@ -10,7 +10,6 @@ let isMouseDown = false;
             startX = e.pageX - container.offsetLeft;
             scrollLeft = container.scrollLeft;
         }
-        event.preventDefault();
     });
 
     document.addEventListener('mouseup', () => {
