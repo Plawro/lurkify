@@ -77,6 +77,19 @@ const dataList = [
         ]
     },
     {
+        categoryName: 'Game stores (Free & paid',
+        color: 'gray',
+        isSpicy: '',
+        otherTags: '',
+        items: [
+            ['Steam', 'Most popular game store','https://steampowered.com'],
+            ['Epic Games', 'Most free games events','https://epicgames.com'],
+            ['GOG.com', 'Free game events, mostly known for older games','https://gog.com'],
+            ['Itch.io', 'User made indie games (mostly free)','https://itch.io'],
+            ['Gamejolt', 'User made indie games','https://gamejolt.com']
+        ]
+    },
+    {
         categoryName: '[Hacking] Game hacks (CS:GO, Minecraft, GTA V online)',
         color: 'green',
         isSpicy: 'spicy',
