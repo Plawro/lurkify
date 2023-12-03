@@ -314,4 +314,58 @@ html {
 }
 
 
+.sideNav {
+  display: flex;
+  flex-direction: column;
+  width: 265px;
+  background: #202020;
+  padding: 15px;
+  border-radius: 9px;
+  box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);
+}
+
+.sideNav a {
+  color: #7e8299;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+.sideNav a:hover {
+  background: #171717;
+  text-decoration: none;
+  border-radius: 9px;
+  color: #fff;
+}
+
+.sideNav h2 {
+  color: #A1A5B7;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  margin-bottom: 10px;
+}
+
+.sideNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sideNav li {
+  margin-bottom: 10px;
+}
+
+.sidenav {
+  height: 50%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 14%;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
 
