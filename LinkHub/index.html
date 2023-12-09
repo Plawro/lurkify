@@ -30,46 +30,193 @@
     <br><br><br><br><br><br>
     <h1 class="searchMessage" data-text="Nothing found">Nothing found</h1>
 
-
-            FIXNOUT SCRIPT PRO SCROLL A DAT SEM MOST USED / FAVORITE VECI
+            <h1 style="color:white">FIXNOUT SCRIPT PRO SCROLL, CUSTOM DOMAIN</h1>
                         
+
+            <div class="modal" id="modal1">
+                <div class="modal-content">
+                    <span class="close-button">×</span>
+                    <h1>What are Lurquicks?</h1>
+                    <p><strong style="color:var(--hover)">Lurquicks are quick-to-access links</strong>, which you can add/remove yourself.<br><br>
+                        They are all stored in local storage, so you can't share them (unless you find them in Inspector).<br>
+                        They shouldn't disappear, unless you <strong style="color:var(--hover)">clear them by cleaning web browser data</strong>.<br>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="modal" id="modal2">
+                <div class="modal-content">
+                    <span class="close-button">×</span>
+                    <h1>How to add Lurquicks?</h1>
+                    <p style="color:var(--light)">To add or remove Lurquicks, <strong style="color:var(--hover)" >click the Checkbox on top of the Sidebar, to activate the edit mode</strong>. After that, in the main section, <strong style="color:var(--hover)">click the "+"</strong> next to any link to add it (<strong style="color:var(--hover)">you can't have the same link twice</strong>) and <strong style="color:var(--hover)">to remove Lurquick, just click the "X"</strong> next to the want-to-remove Lurquick in the sidebar.<br><br>
+                    <strong style="color:var(--secondary)">NOTE: You can't click on links in the main section while the editing mode is enabled, to enable links again, click again the checkbox.</strong><br>
+                    <strong style="color:var(--warning)">Edit mode will always reset on page reload (also when adding/removing Lurquick)</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal" id="modal3">
+                <div class="modal-content">
+                    <span class="close-button">×</span>
+                    <h1>What is this web?</h1>
+                    <p style="color:var(--light)">This web was (/is) Plawro's free-time project (check other projects by searching "Plawro" in the search bar)<br><br>
+                        <strong style="color:var(--hover)" >The main purpose of this web is to get rid of the bookmarks and have just one, and that is, Lurkify.</strong><br><br>
+                        There are other uses, like discovering new sites.<br><br><br>
+                        This web is hosted on Github under MIT license.
+                    </p>
+                </div>
+            </div>
+
+
+
+
+
                         <div class="sideNav">
                             <nav class="nav">
-                                <h2>Navigation</h2>
-                                <ul class="nav-list">
-                                    <li><a href="">Forums</a></li>
-                                    <li><a href="">What's new</a></li>
-                                    <li><a href="">Resources</a></li>
-                                    <li><a href="">Members</a></li>
+                                <a><input type="checkbox" id="disableTagLinksCheckbox" onclick="toggleDisableTagLinks()">Edit Lurquicks mode</a>
+
+                                <h2>Lurquicks</h2>
+  
+<script>
+    let disableTagLinks = false;
+
+    function toggleDisableTagLinks() {
+        disableTagLinks = document.getElementById('disableTagLinksCheckbox').checked;
+
+        const tagIcons = document.querySelectorAll('.tagIcon');
+        
+        tagIcons.forEach(tagIcon => {
+            tagIcon.innerHTML = disableTagLinks ? '+' : '';
+        });
+
+
+
+        const lurquickButtons = document.querySelectorAll('.deletebutton');
+        
+        lurquickButtons.forEach(lurquickButton => {
+            lurquickButton.innerHTML = disableTagLinks ? 'X' : '';
+        });
+    }
+    </script>
+
+                                <ul class="nav-list" id="lurquickContainer">
+                                    <script>
+                                        const lurquicks = JSON.parse(localStorage.getItem('lurquicks')) || [];
+                                    
+                                        let addLurquicks = '';
+                                    
+                                        lurquicks.forEach(item => {
+                                            const [name, link] = item;
+                                            addLurquicks += `<li style="display:flex"><a style="width:100%" href='${link}'>${name}</a><span class="deleteButton" onclick="removeFromLurquicks('${name}', '${link}')">${disableTagLinks ? 'X' : ''}</span></li>`;
+                                        });
+                                    
+                                        document.getElementById('lurquickContainer').innerHTML = addLurquicks;
+                                    </script>
+
                                 </ul>
                             </nav>
                             <div class="sectionLinks">
-                                <h2>Navigation section</h2>
+                                <h2>Recommended</h2>
                                 <ul class="sectionLinks-list">
-                                    <li><a href="">New posts</a></li>
-                                    <li><a href="">Search forums</a></li>
+                                    <li><a href="https://virustotal.com">Virustotal</a></li>
+                                    <li><a href="https://gx.games">GX Games</a></li>
                                 </ul>
                             </div>
+                            <div class="sectionLinks">
+                                <h2>What is? / How to?</h2>
+                                <ul class="sectionLinks-list">
+                                    <li><a class="trigger" data-modal="modal1">Lurquicks</a></li>
+                                    <li><a class="trigger" data-modal="modal2">Add Lurquicks</a></li>
+                                    <li><a class="trigger" data-modal="modal3">This web</a></li>
+
+
+<script>
+    function toggleModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target.classList.contains("modal")) {
+            toggleModal(event.target.id);
+        }
+    }
+
+    document.querySelectorAll(".trigger").forEach(button => {
+        button.addEventListener("click", () => toggleModal(button.getAttribute("data-modal")));
+    });
+
+    document.querySelectorAll(".close-button").forEach(closeButton => {
+        closeButton.addEventListener("click", () => toggleModal(closeButton.closest(".modal").id));
+    });
+
+    window.addEventListener("click", windowOnClick);
+</script>
+
+                                </ul>
+                            </div>
+                            
                         </div>
+
+                        <div class="ag-courses-item_link sideNav" style="width:20%; top: 72%; height:6%">
+                            <h2 style="margin-top:0;margin-bottom:0">What's new?</h2>
+                            <h3 style="color:var(--main)">Added sidebar and new links!</h3>
+                        </div>
+
+                        <div class="ag-courses-item_link sideNav" style="width:20%; top: 85%; height:6%">
+                            <h2 style="margin-top:0;margin-bottom:0">LinkHub R1V6</h2>
+                            <h3 style="color:var(--semi)">Copyright Plawro, 2023</h3>
+                        </div>
+                        
+                            
+                        
         </div></div>
             
 
     <div class="main" style="margin-left:20%">
         <div class="ag-format-container" id="mainContainer"></div>
             <script>
+                
+                function addToLurquicks(name, link) {
+        const lurquicks = JSON.parse(localStorage.getItem('lurquicks')) || [];
+        const isAlreadyInLurquicks = lurquicks.some(item => item[0] === name && item[1] === link);
 
-                function createTagElement(name, desc, link) { //Change max width in longer names
-                    return `<div class="tag" style="height:40px" onclick="location.href='${link}'">${name}<br><p style="font-size:10px">${desc}</p></div>`;
+        if (!isAlreadyInLurquicks) {
+            lurquicks.push([name, link]);
+            localStorage.setItem('lurquicks', JSON.stringify(lurquicks));
+            location.reload();
+        } else {
+            alert(`${name} is already in Lurquicks!`);
+        }
+    }
+
+function removeFromLurquicks(name, link) {
+    const lurquicks = JSON.parse(localStorage.getItem('lurquicks')) || [];
+    const updatedLurquicks = lurquicks.filter(item => item[0] !== name || item[1] !== link);
+
+    localStorage.setItem('lurquicks', JSON.stringify(updatedLurquicks));
+
+    location.reload();
+}
+
+
+                const currentCategoryColor = "";
+                function createTagElement(name, desc, link) { //Change max width in longer names, pak mozna pridat, ze budou mit vlastni barvy
+                    return `<div class="tag" style="height:40px; position: relative;" 
+                    onclick="if(!disableTagLinks){location.href='${link}'} else {addToLurquicks('${name}', '${link}')}">${name}<br>
+                        <p style="font-size:10px">${desc}</p>
+                        <div class="tagIcon">${disableTagLinks ? '+' : ''}</div>
+                    </div>`;
                 }
 
                 let htmlString = '';
 
                 dataList.forEach(category => {
                     const tags = category.items.map(item => createTagElement(item[0], item[1], item[2])).join('');
-
+                    const currentCategoryColor = category.color;
                     htmlString += `
         <div class="ag-courses_item ${category.isSpicy}" style="width:80%;margin-left:auto;margin-right:auto;">
-            <a href="#" class="ag-courses-item_link">
+            <a if(!disableTagLinks){href="#"} class="ag-courses-item_link">
                 <div class="ag-courses-item_bg" style="background-color:${category.color}"></div>
                 <div class="ag-courses-item_title">${category.categoryName}</div>
                 <div class="ag-courses-item_date-box">
