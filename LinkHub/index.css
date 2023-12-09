@@ -9,6 +9,9 @@
   --border1: #38546d; 
   --border1: #16222c;
   --warning: 	#ff0f0f;
+  --gray: #7e8299;
+  --darker: #202020;
+  /*U nekterych jsou jeste vlastni barvy (napr. yellow, black, custom rgba barvy - napr. pro shadows)*/
 }
 
 
@@ -167,7 +170,7 @@
                         user-select: none;
                         padding: 10px;
                         overflow: hidden;
-                        z-index: 999;
+                        z-index: 900;
                     }
             
                     #container:active {
@@ -198,7 +201,7 @@
                         align-items: center;
                         border-radius: 10px;
                         margin-left: 2%;
-                        z-index: 1000;
+                        z-index: 901;
                     }
                     
             
@@ -288,10 +291,27 @@ html {
   scroll-behavior: smooth;
 }
 
+.tagIcon {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.deleteButton{
+  color: var(--light);
+  margin-top: auto;
+  margin-bottom: auto;
+  width:10%;
+  margin-left:5%;
+  cursor:pointer;
+  font-size:15px;
+}
 
 .searchMessage {
   display: inline-block;
-  margin-left: 15%;
+  margin-left: 30%;
   font-size: 40px;
   background-image: repeating-linear-gradient(-45deg, yellow 0, yellow 6px, black 6px, black 12px);
   -webkit-background-clip: text;
@@ -309,7 +329,7 @@ html {
   z-index: -1;
   -webkit-background-clip: text;
   background-clip: text;
-  color: white;
+  color: var(--light);
   text-shadow: none;
 }
 
@@ -318,14 +338,15 @@ html {
   display: flex;
   flex-direction: column;
   width: 265px;
-  background: #202020;
+  background: var(--darker);
   padding: 15px;
+  margin-left:20px;
   border-radius: 9px;
   box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);
 }
 
 .sideNav a {
-  color: #7e8299;
+  color: var(--gray);
   text-decoration: none;
   padding: 10px;
   display: block;
@@ -335,11 +356,11 @@ html {
   background: #171717;
   text-decoration: none;
   border-radius: 9px;
-  color: #fff;
+  color: var(--light);
 }
 
 .sideNav h2 {
-  color: #A1A5B7;
+  color: var(--light);
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
@@ -368,4 +389,52 @@ html {
   overflow-x: hidden;
   padding-top: 20px;
 }
+.trigger{
+  color: var(--gray);
+  cursor: pointer;
+}
 
+.modal {
+position: fixed;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+opacity: 0;
+visibility: hidden;
+transform: scale(1.1);
+transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+z-index: 9999;
+margin:auto;
+margin-top:-10%
+}
+.modal-content {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: var(--darker);
+padding: 1rem 1.5rem;
+width: 40%;
+border-radius: 0.5rem;
+}
+.modal-content h1,p{
+  color: var(--gray);
+}
+.close-button {
+float: right;
+width: 1.5rem;
+line-height: 1.5rem;
+text-align: center;
+cursor: pointer;
+border-radius: 0.25rem;
+background-color: var(--light);
+}
+.close-button:hover {
+background-color: var(--border1);
+}
+.show-modal {
+opacity: 1;
+visibility: visible;
+transform: scale(1.0);
+transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
