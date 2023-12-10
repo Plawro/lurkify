@@ -1,48 +1,38 @@
-let isMouseDown = false;
-    let startX;
-    let scrollLeft;
+let isDragging = false;
+let startX;
+let scrollLeft;
 
-    const container = document.getElementById('container');
+// Use querySelectorAll to select all elements with the class 'container'
+const containers = document.querySelectorAll('.container');
 
-    let isPointerDown = false;
-    // Mouse events
-    document.addEventListener('mousedown', (e) => {
-        isPointerDown = true;
-        startX = e.pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-    });
-    
-    document.addEventListener('mouseup', () => {
-        isPointerDown = false;
-    });
-    
-    document.addEventListener('mousemove', (e) => {
-        if (!isPointerDown) return;
-    
-        const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 1;
-        container.scrollLeft = scrollLeft - walk;
-    });
-    
-    // Touch events
-    document.addEventListener('touchstart', (e) => {
-        isPointerDown = true;
-        startX = e.touches[0].pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-    });
-    
-    document.addEventListener('touchend', () => {
-        isPointerDown = false;
-    });
-    
-    document.addEventListener('touchmove', (e) => {
-        if (!isPointerDown || e.touches.length !== 1) return;
-    
-        const x = e.touches[0].pageX - container.offsetLeft;
-        const walk = (x - startX) * 1;
-        container.scrollLeft = scrollLeft - walk;
-    });
-    
+containers.forEach(container => {
+  container.addEventListener('mousedown', startDrag);
+  container.addEventListener('mouseup', endDrag);
+  container.addEventListener('mousemove', drag);
+
+  container.addEventListener('touchstart', startDrag);
+  container.addEventListener('touchend', endDrag);
+  container.addEventListener('touchmove', drag);
+});
+
+function startDrag(e) {
+  isDragging = true;
+  startX = (e.type === 'mousedown') ? e.pageX : e.touches[0].pageX;
+  scrollLeft = e.currentTarget.scrollLeft;
+}
+
+function endDrag() {
+  isDragging = false;
+}
+
+function drag(e) {
+  if (!isDragging) return;
+
+  const currentX = (e.type === 'mousemove') ? e.pageX : e.touches[0].pageX;
+  const walk = (currentX - startX) * 1;
+  e.currentTarget.scrollLeft = scrollLeft - walk;
+}
+
 
 
     var searchTimer;
@@ -168,3 +158,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     
+ 
