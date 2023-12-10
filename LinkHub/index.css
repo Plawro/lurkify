@@ -11,6 +11,7 @@
   --warning: 	#ff0f0f;
   --gray: #7e8299;
   --darker: #202020;
+  --success: #44cc66;
   /*U nekterych jsou jeste vlastni barvy (napr. yellow, black, custom rgba barvy - napr. pro shadows)*/
 }
 
@@ -451,11 +452,11 @@ transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
 .toggler-wrapper input[type="checkbox"]:checked+.toggler-slider {
-  background-color: #44cc66;
+  background-color: var(--success);
 }
 
 .toggler-wrapper .toggler-slider {
-  background-color: #ccc;
+  background-color: var(--gray);
   position: absolute;
   border-radius: 100px;
   top: 0;
@@ -483,5 +484,5 @@ transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
   border-radius: 50%;
   left: 3px;
   top: 3px;
-  background-color: #fff;
+  background-color: var(--light);
 }
