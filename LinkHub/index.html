@@ -30,7 +30,7 @@
     <br><br><br><br><br><br>
     <h1 class="searchMessage" data-text="Nothing found">Nothing found</h1>
 
-            <h1 style="color:white">FIXNOUT SCRIPT PRO SCROLL, CUSTOM DOMAIN, NOVE ODKAZY</h1>
+            <h1 style="color:white;margin-left: 500px;">CUSTOM DOMAIN, NOVE ODKAZY</h1>
                         
 
             <div class="modal" id="modal1">
@@ -104,6 +104,11 @@
         lurquickButtons.forEach(lurquickButton => {
             lurquickButton.innerHTML = disableTagLinks ? 'X' : '';
         });
+
+
+        const lurquickLinks = document.querySelectorAll('.lurquickLinkAvaibility');
+
+
     }
     </script>
 
@@ -115,7 +120,14 @@
                                     
                                         lurquicks.forEach(item => {
                                             const [name, link] = item;
-                                            addLurquicks += `<li style="display:flex"><a style="width:100%" href='${link}'>${name}</a><span class="deleteButton" onclick="removeFromLurquicks('${name}', '${link}')">${disableTagLinks ? 'X' : ''}</span></li>`;
+                                            addLurquicks += `<li style="display:flex">
+  <a class="lurquickLinkAvaibility" style="width:100%" 
+    ${!disableTagLinks ? `href="${link}"` : ``}
+  >
+    ${name}
+  </a>
+  <span class="deleteButton" onclick="removeFromLurquicks('${name}', '${link}')">
+${disableTagLinks ? 'X' : ''}</span></li>`;
                                         });
                                     
                                         document.getElementById('lurquickContainer').innerHTML = addLurquicks;
