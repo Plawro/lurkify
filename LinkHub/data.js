@@ -77,7 +77,7 @@ const dataList = [
         ]
     },
     {
-        categoryName: 'Game stores (Free & paid',
+        categoryName: 'Game stores (Free & paid)',
         color: 'gray',
         isSpicy: '',
         otherTags: '',
@@ -119,16 +119,33 @@ const dataList = [
         items: [
             ['Blender', '3D modelling, animation','https://blender.com'],
             ['Creality print', '3D print preparing software - best for their 3D printers tho','https://creality.com'],
-            ['3DViewer', 'Online 3D model viewer','https://3dviewer.net']
+            ['3DViewer', 'Online 3D model viewer','https://3dviewer.net'],
+            ['ImageToStl', 'Convert images to 3D models','https://imagetostl.com']
         ]
     },
     {
-        categoryName: '[NSFW] Free NSFW models',
-        color: 'red',
-        isSpicy: 'spicy',
-        otherTags: 'Spicy models',
+        categoryName: '[AI] AI image generators',
+        color: 'pink',
+        isSpicy: '',
+        otherTags: '',
         items: [
-            ['Smutbase', 'Free NSFW 3D models','https://smutba.se']
+            ['Pretty AI', 'Great free no-signup generator','https://perchance.org/pretty-ai'],
+            ['Promptchan AI', 'Good free character generator','https://promptchan.ai']
+            
+        ]
+    },
+    {
+        categoryName: 'Name/Logo generators',
+        color: 'blue',
+        isSpicy: '',
+        otherTags: '',
+        items: [
+            ['Looka', 'Great original name generator (dynamic), free','https://looka.com/business-name-generator/'],
+            ['Namelix', 'Name generator, free','https://namelix.com'],
+            ['Brandcrowd', 'Logo generator, free','https://www.brandcrowd.com/logo-maker'],
+            ['Renderforest', 'Name generator, free','https://www.renderforest.com/business-name-suggestions']
+            
         ]
     }
+
 ];
