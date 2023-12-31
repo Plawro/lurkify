@@ -135,7 +135,7 @@ const dataList = [
         ]
     },
     {
-        categoryName: 'Name/Logo generators',
+        categoryName: '[AI] Name/Logo generators',
         color: 'blue',
         isSpicy: '',
         otherTags: '',
@@ -144,6 +144,19 @@ const dataList = [
             ['Namelix', 'Name generator, free','https://namelix.com'],
             ['Brandcrowd', 'Logo generator, free','https://www.brandcrowd.com/logo-maker'],
             ['Renderforest', 'Name generator, free','https://www.renderforest.com/business-name-suggestions']
+            
+        ]
+    },
+    {
+        categoryName: '[PIRATING] Free movies / series websites',
+        color: 'red',
+        isSpicy: 'spicy',
+        otherTags: '',
+        items: [
+            ['Bombuj.si', 'Slovakian movie search website','https://bombuj.si'],
+            ['Prehraj.to', 'Movies (or series, but not in playlist)','https://prehraj.to'],
+            ['Svetserialu.io', 'Series, easy to watch in a playlist','https://svetserialu.io'],
+            ['Sledujserialy.io', 'Similar to svetserialu.io','https://sledujserialy.io']
             
         ]
     }
