@@ -15,6 +15,18 @@
   /*U nekterych jsou jeste vlastni barvy (napr. yellow, black, custom rgba barvy - napr. pro shadows)*/
 }
 
+    .blink {
+      animation: blink 1s infinite alternate;
+    }
+
+    @keyframes blink {
+      from {
+        color: var(--light);
+      }
+      to {
+        color: var(--dark);
+      }
+    }
 
 .ag-format-container {
     margin: 0 auto;

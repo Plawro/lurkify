@@ -93,7 +93,7 @@ const dataList = [
         categoryName: '[Hacking] Game hacks (CS:GO, Minecraft, GTA V online)',
         color: 'green',
         isSpicy: 'spicy',
-        otherTags: 'Hacking',
+        otherTags: 'Hacking, Exploits, Cheats',
         items: [
             ['Cheater.fun', 'Hacks for CS:GO','https://cheater.fun'],
             ['MCHacks', 'Minecraft clients (hacks)','https://mchacks.net'],
@@ -127,7 +127,7 @@ const dataList = [
         categoryName: '[AI] AI image generators',
         color: 'pink',
         isSpicy: '',
-        otherTags: '',
+        otherTags: 'AI, AI images',
         items: [
             ['Pretty AI', 'Great free no-signup generator','https://perchance.org/pretty-ai'],
             ['Promptchan AI', 'Good free character generator','https://promptchan.ai']
@@ -138,7 +138,7 @@ const dataList = [
         categoryName: '[AI] Name/Logo generators',
         color: 'blue',
         isSpicy: '',
-        otherTags: '',
+        otherTags: 'AI, AI logo ideas',
         items: [
             ['Looka', 'Great original name generator (dynamic), free','https://looka.com/business-name-generator/'],
             ['Namelix', 'Name generator, free','https://namelix.com'],
@@ -151,7 +151,7 @@ const dataList = [
         categoryName: '[PIRATING] Free movies / series websites',
         color: 'red',
         isSpicy: 'spicy',
-        otherTags: '',
+        otherTags: 'Pirating, Leaked movies, Cinema movies',
         items: [
             ['Bombuj.si', 'Slovakian movie search website','https://bombuj.si'],
             ['Prehraj.to', 'Movies (or series, but not in playlist)','https://prehraj.to'],
@@ -164,10 +164,21 @@ const dataList = [
         categoryName: '[PIRATING] Temporary email / phone number',
         color: 'green',
         isSpicy: 'spicy',
-        otherTags: '',
+        otherTags: 'Pirating, Fake e-mail, Fake phone number',
         items: [
             ['Temp number', 'Free temporary numbers, with SMS cache ','https://temp-number.com'],
             ['Temp mail', 'Free temporary emails, with email chache','https://temp-mail.org']
+            
+        ]
+    },
+    {
+        categoryName: 'Free web hosting',
+        color: 'orange',
+        isSpicy: '',
+        otherTags: '',
+        items: [
+            ['Endora', 'Free Czech hosting, footer ad, free domains','https://endora.cz'],
+            ['Webzdarma', 'Free Czech hosting, but ad in URL','https://webzdarma.cz']
             
         ]
     }
