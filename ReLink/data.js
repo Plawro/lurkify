@@ -159,6 +159,17 @@ const dataList = [
             ['Sledujserialy.io', 'Similar to svetserialu.io','https://sledujserialy.io']
             
         ]
+    },
+    {
+        categoryName: '[PIRATING] Temporary email / phone number',
+        color: 'green',
+        isSpicy: 'spicy',
+        otherTags: '',
+        items: [
+            ['Temp number', 'Free temporary numbers, with SMS cache ','https://temp-number.com'],
+            ['Temp mail', 'Free temporary emails, with email chache','https://temp-mail.org']
+            
+        ]
     }
 
 ];
