@@ -178,7 +178,8 @@ const dataList = [
         otherTags: '',
         items: [
             ['Endora', 'Free Czech hosting, footer ad, free domains','https://endora.cz'],
-            ['Webzdarma', 'Free Czech hosting, but ad in URL','https://webzdarma.cz']
+            ['Webzdarma', 'Free Czech hosting, but ad in URL, http only','https://webzdarma.cz'],
+            ['InfinityFree', 'Free US hosting','https://infinityfree.com']
             
         ]
     }
